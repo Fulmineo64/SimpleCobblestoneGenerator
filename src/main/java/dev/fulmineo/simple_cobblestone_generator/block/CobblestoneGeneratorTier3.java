@@ -22,6 +22,6 @@ public class CobblestoneGeneratorTier3 extends AbstractCobblestoneGenerator {
 
 	@Nullable
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-	   return checkType(world, type, CobblestoneGeneratorsInit.COBBLE_GEN_TIER3_ENTITY);
+	   return validateTicker(world, type, CobblestoneGeneratorsInit.COBBLE_GEN_TIER3_ENTITY);
 	}
 }

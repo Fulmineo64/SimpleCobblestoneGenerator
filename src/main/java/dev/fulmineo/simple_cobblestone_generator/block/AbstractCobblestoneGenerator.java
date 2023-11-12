@@ -153,8 +153,8 @@ public abstract class AbstractCobblestoneGenerator extends BlockWithEntity {
 	}
 
 	@Nullable
-	protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractCobblestoneGeneratorBlockEntity> expectedType) {
-	   return world.isClient ? null : checkType(givenType, expectedType, AbstractCobblestoneGeneratorBlockEntity::tick);
+	protected static <T extends BlockEntity> BlockEntityTicker<T> validateTicker(World world, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractCobblestoneGeneratorBlockEntity> expectedType) {
+	   return world.isClient ? null : validateTicker(givenType, expectedType, AbstractCobblestoneGeneratorBlockEntity::tick);
 	}
 
 	static {
