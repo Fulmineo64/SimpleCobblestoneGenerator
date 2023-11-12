@@ -1,3 +1,6 @@
+# 1.1.13
+- Updated to Minecraft 1.19.4
+
 # 1.1.12
 - Updated to Minecraft 1.19.3
 
