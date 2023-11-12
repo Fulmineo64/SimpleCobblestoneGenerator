@@ -6,7 +6,11 @@ import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import org.apache.logging.log4j.Level;
@@ -23,16 +27,21 @@ public class SimpleCobblestoneGenerator implements ModInitializer {
     // Identifiers
 
     public static final String MOD_ID = "simple_cobblestone_generator";
-	public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID,"group")).icon(() -> new ItemStack(Registries.ITEM.get(new Identifier(MOD_ID,"generator_tier1")))).build();
 
 	public static final int[] TIERS = {32, 16, 8, 4, 1};
 
 	// Screens
 
     public static final ScreenHandlerType<CobblestoneGeneratorScreenHandler> SCREEN_HANDLER = ScreenHandlerRegistry.registerExtended(new Identifier(MOD_ID, "generator"), CobblestoneGeneratorScreenHandler::new);
+	
+    // Item groups
+
+	public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(MOD_ID, "group"));
+
 
     @Override
     public void onInitialize() {
+		Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder().displayName(Text.translatable("itemGroup.simple_cobblestone_generator.group")).icon(() -> new ItemStack(Registries.ITEM.get(new Identifier(MOD_ID,"generator_tier1")))).build());
 		CobblestoneGeneratorsInit.init();
     }
 

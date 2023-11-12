@@ -15,9 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -54,7 +52,7 @@ public abstract class AbstractCobblestoneGenerator extends BlockWithEntity {
 	private String name;
 
 	public AbstractCobblestoneGenerator(int tier) {
-		super(FabricBlockSettings.of(Material.METAL, Blocks.IRON_BLOCK.getDefaultMapColor()).strength(2.0f, 3.0f).sounds(BlockSoundGroup.METAL));
+		super(FabricBlockSettings.create().strength(2.0f, 3.0f).sounds(BlockSoundGroup.METAL));
 		this.tier = tier;
 		this.name = "generator_tier" + tier;
 		this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)));
