@@ -12,11 +12,13 @@ import dev.fulmineo.simple_cobblestone_generator.block.entity.CobblestoneGenerat
 import dev.fulmineo.simple_cobblestone_generator.block.entity.CobblestoneGeneratorTier3BlockEntity;
 import dev.fulmineo.simple_cobblestone_generator.block.entity.CobblestoneGeneratorTier4BlockEntity;
 import dev.fulmineo.simple_cobblestone_generator.block.entity.CobblestoneGeneratorTier5BlockEntity;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 public class CobblestoneGeneratorsInit {
 
@@ -41,8 +43,12 @@ public class CobblestoneGeneratorsInit {
 	}
 
 	private static void register(AbstractCobblestoneGenerator generator, BlockEntityType<?> entityType){
-		Registry.register(Registry.BLOCK, generator.getIdentifier(), generator);
-		Registry.register(Registry.BLOCK_ENTITY_TYPE, generator.getIdentifier(), entityType);
-		Registry.register(Registry.ITEM, generator.getIdentifier(), new BlockItem(generator, new Item.Settings().maxCount(64).group(SimpleCobblestoneGenerator.GROUP)));
+		Registry.register(Registries.BLOCK, generator.getIdentifier(), generator);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE, generator.getIdentifier(), entityType);
+		BlockItem item = new BlockItem(generator, new Item.Settings().maxCount(64));
+		Registry.register(Registries.ITEM, generator.getIdentifier(), item);
+		ItemGroupEvents.modifyEntriesEvent(SimpleCobblestoneGenerator.ITEM_GROUP).register(content -> {
+			content.add(item);
+		});
 	}
 }
