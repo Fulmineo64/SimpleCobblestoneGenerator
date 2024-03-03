@@ -1,0 +1,19 @@
+{
+	"containers.generator_tier1": "基础刷石机",
+	"containers.generator_tier2": "高级刷石机",
+	"containers.generator_tier3": "珠翠刷石机",
+	"containers.generator_tier4": "神话刷石机",
+	"containers.generator_tier5": "极致刷石机",
+	"containers.generator_tier6": "终极刷石机",
+	"block.simple_cobblestone_generator.generator_tier1": "基础刷石机",
+	"block.simple_cobblestone_generator.generator_tier2": "高级刷石机",
+	"block.simple_cobblestone_generator.generator_tier3": "珠翠刷石机",
+	"block.simple_cobblestone_generator.generator_tier4": "神话刷石机",
+	"block.simple_cobblestone_generator.generator_tier5": "极致刷石机",
+	"block.simple_cobblestone_generator.generator_tier6": "终极刷石机",
+	"itemGroup.simple_cobblestone_generator.group": "简易刷石机",
+	"lang.simple_cobblestone_generator.generates_every": "生成%d圆石每",
+	"lang.simple_cobblestone_generator.tick": "游戏刻",
+	"lang.simple_cobblestone_generator.ticks": "%d游戏刻",
+	"lang.simple_cobblestone_generator.tooltip": "可以向上方的容器输出物品"
+}
