@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.mojang.serialization.MapCodec;
+
 import dev.fulmineo.simple_cobblestone_generator.SimpleCobblestoneGenerator;
 import dev.fulmineo.simple_cobblestone_generator.block.entity.AbstractCobblestoneGeneratorBlockEntity;
 import dev.fulmineo.simple_cobblestone_generator.screen.CobblestoneGeneratorScreenHandler;
@@ -151,6 +153,10 @@ public abstract class AbstractCobblestoneGenerator extends BlockWithEntity {
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
+
+	protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return null;
+    }
 
 	@Nullable
 	protected static <T extends BlockEntity> BlockEntityTicker<T> validateTicker(World world, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractCobblestoneGeneratorBlockEntity> expectedType) {

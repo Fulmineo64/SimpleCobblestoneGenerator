@@ -1,3 +1,7 @@
+# 1.1.17
+- Updated to Minecraft 1.20.3
+- Added chinese translations, many thanks to mangke01 for their contribution!
+
 # 1.1.16
 - Updated to Minecraft 1.20.2
 
